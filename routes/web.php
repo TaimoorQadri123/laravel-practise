@@ -27,5 +27,9 @@ Route::get('contact', function () {
     return view('contact');
 });
 Route::get('std',[MyController::class,'selectStudents']);
+
+Route::get('insert', function () {
+    return view('insert');
+});
 Route::post('insert',[MyController::class,'insertData']);
 

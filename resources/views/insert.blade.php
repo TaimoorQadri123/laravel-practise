@@ -28,36 +28,48 @@
                 <input
                     type="text"
                     name="name"
+                    value="{{old ('name')}}"
                     id=""
                     class="form-control"
                     placeholder=""
                     aria-describedby="helpId"
                 />
-                <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                @error('name')
+                <small id="helpId" class="text-danger">{{$message}}</small>
+                 @enderror
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Email</label>
                 <input
                     type="text"
                     name="email"
+                    value="{{old ('email')}}"
+
                     id=""
                     class="form-control"
                     placeholder=""
                     aria-describedby="helpId"
                 />
-                <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                @error('email')
+                <small id="helpId" class="text-danger">{{$message}}</small>
+                 @enderror
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Password</label>
                 <input
                     type="text"
                     name="password"
+                    value="{{old ('password')}}"
+
                     id=""
                     class="form-control"
                     placeholder=""
                     aria-describedby="helpId"
                 />
-                <!-- <small id="helpId" class="text-muted">Help text</small> -->
+               
+                @error('password')
+                <small id="helpId" class="text-danger">{{$message}}</small>
+                 @enderror
             </div>
             <button class="btn btn-info">Add</button>
             
