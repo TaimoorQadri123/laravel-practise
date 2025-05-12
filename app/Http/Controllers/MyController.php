@@ -28,7 +28,7 @@ class MyController extends Controller
         $student->email = $req->email;
         $student->password = $req->password;
         $student->save();
-        return redirect('/');
+        return redirect('/insert');
 
 
         
@@ -43,6 +43,46 @@ class MyController extends Controller
         $studentRecord = Student::find($id);
         return view('edit',compact('studentRecord'));
     }
+    public function updateData(Request $req ,$id){
+
+        $student = new Student();
+        $studentRecord = Student::find($id); //get data from table
+        $studentRecord->name= $req->name;
+        $studentRecord->email= $req->email;
+        $studentRecord->password= $req->password;
+        $studentRecord->save();
+        return redirect('/');
+
+
+
+    }
+    public function deleteData($id){
+
+        $student = new Student();
+        $studentRecord = Student::find($id);
+        $studentRecord->delete();
+        return redirect('/select');
+
+
+    }
+    
+    // public function deleteData($id){
+    //     $student = new Student();
+    //     $studentRecord = Student::find($id);
+    //     $studentRecord->delete();
+    //     return redirect('/select');
+    // }
+//     public function deleteData($id)
+// {
+//     $student = Student::find($id);
+//     if ($student) {
+//         $student->delete();
+//         return redirect('/select')->with('success', 'Student record deleted successfully.');
+//     } else {
+//         return redirect('/select')->with('error', 'Student record not found.');
+//     }
+// }
+
 }
 
 
